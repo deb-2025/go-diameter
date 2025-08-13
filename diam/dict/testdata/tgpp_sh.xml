@@ -202,7 +202,7 @@
     <data type="UTF8String"/>
 </avp>
 
-<avp name="DRMP" code="301" must-not="V">
+<avp name="DRMP" code="301" must-not="M,V">
     <data type="Enumerated">
         <item code="0" name="PRIORITY_0"/>
         <item code="1" name="PRIORITY_1"/>
@@ -223,15 +223,15 @@
     </data>
 </avp>
 
-<avp name="Vendor-Specific-Application-Id" code="260" must="M" may="P" must-not="V" may-encrypt="N" vendor-id="10415">
+<avp name="Vendor-Specific-Application-Id" code="260" must="M" may="P" must-not="V" may-encrypt="N">
     <data type="Grouped" >
-        <rule avp="Vendor-ID" required="false" max="1" />
+        <rule avp="Vendor-Id" required="false" max="1" />
         <rule avp="Auth-Application-Id" required="false" max="1" />
         <rule avp="Acct-Application-Id" required="false" max="1" />
     </data>
 </avp>
 
-<avp name="Vendor-ID" code="266" must="M" may-encrypt="-" vendor-id="10415">
+<avp name="Vendor-ID" code="266" must="M" may-encrypt="-">
     <data type="Unsigned32"   />
 </avp>
 
@@ -274,7 +274,7 @@
     </data>
 </avp>
 
-<avp name="Vendor-ID" code="266" must="M" may-encrypt="-" vendor-id="10415">
+<avp name="Vendor-ID" code="266" must="M" may-encrypt="-">
     <data type="Unsigned32"   />
 </avp>
 
@@ -306,23 +306,23 @@
     <data type="UTF8String"   />
 </avp>
 
-<avp name="Wildcarded-Public-Identity" code="634" must="V" must-not="M" may-encrypt="N">
+<avp name="Wildcarded-Public-Identity" code="634" must="V" must-not="M" may-encrypt="N" vendor-id="10415">
     <data type="UTF8String"   />
 </avp>
 
-<avp name="Wildcarded-IMPU" code="636" must="V" may="-" must-not="M" may-encrypt="N">
+<avp name="Wildcarded-IMPU" code="636" must="V" may="-" must-not="M" may-encrypt="N" vendor-id="10415">
     <data type="UTF8String"   />
 </avp>
 
-<avp name="Server-Name" code="602" must="M,V" may="-" must-not="-" may-encrypt="-">
+<avp name="Server-Name" code="602" must="M,V" may="-" must-not="-" may-encrypt="-" vendor-id="10415">
     <data type="UTF8String"   />
 </avp>
 
-<avp name="Service-Indication" code="704" must="M,V" may="-" must-not="-" may-encrypt="N">
+<avp name="Service-Indication" code="704" must="M,V" may="-" must-not="-" may-encrypt="N" vendor-id="10415">
     <data type="UTF8String"   />
 </avp>
 
-<avp name="Data-Reference" code="703" must="M,V" may="-" must-not="-" may-encrypt="N">
+<avp name="Data-Reference" code="703" must="M,V" may="-" must-not="-" may-encrypt="N" vendor-id="10415">
     <data type="Enumerated"  >
         <item code="0" name="RepositoryData" httpValue="RepositoryData" />
         <item code="10" name="IMSPublicIdentity" httpValue="IMSPublicIdentity" />
@@ -353,7 +353,7 @@
     </data>
 </avp>
 
-<avp name="Identity-Set" code="708" must="V" may="-" must-not="M" may-encrypt="N" >
+<avp name="Identity-Set" code="708" must="V" may="-" must-not="M" may-encrypt="N" vendor-id="10415">
     <data type="Enumerated"  >
         <item code="0" name="ALL_IDENTITIES" httpValue="ALL_IDENTITIES" />
         <item code="1" name="REGISTERED_IDENTITIES" httpValue="REGISTERED_IDENTITIES" />
@@ -362,14 +362,14 @@
     </data>
 </avp>
 
-<avp name="Requested-Domain" code="706" must="M,V" may="-" must-not="-" may-encrypt="N" >
+<avp name="Requested-Domain" code="706" must="M,V" may="-" must-not="-" may-encrypt="N" vendor-id="10415">
     <data type="Enumerated"  >
         <item code="0" name="CS-Domain" httpValue="CS-Domain" />
         <item code="1" name="PS-Domain" httpValue="PS-Domain" />
     </data>
 </avp>
 
-<avp name="Current-Location" code="707" must="M,V" may="-" must-not="-" may-encrypt="N" >
+<avp name="Current-Location" code="707" must="M,V" may="-" must-not="-" may-encrypt="N" vendor-id="10415">
     <data type="Enumerated"  >
         <item code="0" name="DoNotNeedInitiateActiveLocationRetrieval" httpValue="DoNotNeedInitiateActiveLocationRetrieval" />
         <item code="1" name="InitiateActiveLocationRetrieval" httpValue="InitiateActiveLocationRetrieval" />
@@ -380,7 +380,7 @@
     <data type="OctetString"   />
 </avp>
 
-<avp name="Session-Priority" code="650" must="V" may="-" must-not="M" may-encrypt="N">
+<avp name="Session-Priority" code="650" must="V" may="-" must-not="M" vendor-id="10415" may-encrypt="N">
     <data type="Enumerated"  >
         <item code="0" name="PRIORITY-0" httpValue="PRIORITY-0"/>
         <item code="1" name="PRIORITY-1" httpValue="PRIORITY-1"/>
@@ -390,7 +390,7 @@
     </data>
 </avp>
 
-<avp name="User-Name" code="1" must="M" may="P" must-not="V" may-encrypt="Y" vendor-id="10415">
+<avp name="User-Name" code="1" must="M" may="P" must-not="V" may-encrypt="Y">
     <data type="UTF8String"   />
 </avp>
 
@@ -398,20 +398,20 @@
     <data type="Unsigned32"   />
 </avp>
 
-<avp name="Serving-Node-Indication" code="714" must="V" may="-" must-not="M" may-encrypt="N">
+<avp name="Serving-Node-Indication" code="714" must="V" may="-" must-not="M" may-encrypt="N" vendor-id="10415">
     <data type="Enumerated"  >
         <item code="0" name="ONLY_SERVING_NODES_REQUIRED" httpValue="ONLY_SERVING_NODES_REQUIRED" />
     </data>
 </avp>
 
-<avp name="Pre-paging-Supported" code="717" must="V" may="-" must-not="M" may-encrypt="N">
+<avp name="Pre-paging-Supported" code="717" must="V" may="-" must-not="M" may-encrypt="N" vendor-id="10415">
     <data type="Enumerated"  >
         <item code="0" name="PREPAGING_NOT_SUPPORTED" httpValue="PREPAGING_NOT_SUPPORTED" />
         <item code="1" name="PREPAGING_SUPPORTED" httpValue="PREPAGING_SUPPORTED" />
     </data>
 </avp>
 
-<avp name="Local-Time-Zone-Indication" code="718" must="V" may="-" must-not="M" may-encrypt="N">
+<avp name="Local-Time-Zone-Indication" code="718" must="V" may="-" must-not="M" may-encrypt="N" vendor-id="10415">
     <data type="Enumerated"  >
         <item code="0" name="ONLY_LOCAL_TIME_ZONE_REQUESTED" httpValue="ONLY_LOCAL_TIME_ZONE_REQUESTED" />
         <item code="1" name="LOCAL_TIME_ZONE_WITH_LOCATION_INFO_REQUESTED" httpValue="LOCAL_TIME_ZONE_WITH_LOCATION_INFO_REQUESTED" />
@@ -512,7 +512,7 @@
     <data type="Unsigned32" />
 </avp>
 
-<avp name="Load" code="650" must-not="V">
+<avp name="Load" code="650" must-not="M,V">
     <data type="Grouped">
         <rule avp="Load-Type" required="false" max="1" />
         <rule avp="Load-Value" required="false" max="1" />
@@ -521,11 +521,11 @@
     </data>
 </avp>
 
-<avp name="Load-Value" code="652" must-not="V">
+<avp name="Load-Value" code="652" must-not="M,V">
     <data type="Unsigned64" />
 </avp>
 
-<avp name="Load-Type" code="651" must-not="V">
+<avp name="Load-Type" code="651" must-not="M,V">
     <data type="Enumerated">
         <item code="0" name="HOST" />
         <item code="1" name="PEER"/>
@@ -544,27 +544,27 @@
     <data type="OctetString"   />
 </avp>
 
-<avp name="One-Time-Notification" code="712" must="V" may="-" must-not="M" may-encrypt="N">
+<avp name="One-Time-Notification" code="712" must="V" may="-" must-not="M" may-encrypt="N" vendor-id="10415">
     <data type="Enumerated"    >
         <item code="0" name="ONE_TIME_NOTIFICATION_REQUESTED"  httpValue="ONE_TIME_NOTIFICATION_REQUESTED" />
     </data>
 </avp>
 
-<avp name="Subs-Req-Type" code="705" must="M,V" may="-" must-not="-" may-encrypt="N">
+<avp name="Subs-Req-Type" code="705" must="M,V" may="-" must-not="-" may-encrypt="N" vendor-id="10415">
     <data type="Enumerated"  >
         <item code="0" name="Subscribe"  httpValue="Subscribe" />
         <item code="1" name="Unsubscribe" httpValue="Unsubscribe" />
     </data>
 </avp>
 
-<avp name="Send-Data-Indication" code="710" must="V" may="-" must-not="M" may-encrypt="N">
+<avp name="Send-Data-Indication" code="710" must="V" may="-" must-not="M" may-encrypt="N" vendor-id="10415">
     <data type="Enumerated"  >
         <item code="0" name="USER_DATA_NOT_REQUESTED" httpValue="USER_DATA_NOT_REQUESTED" />
         <item code="1" name="USER_DATA_REQUESTED" httpValue="USER_DATA_REQUESTED" />
     </data>
 </avp>
 
-<avp name="Repository-Data-ID" code="715" must="V" may="-" must-not="M" may-encrypt="N">
+<avp name="Repository-Data-ID" code="715" must="V" may="-" must-not="M" may-encrypt="N" vendor-id="10415">
     <data type="Grouped"  >
         <rule avp="Service-Indication" required="true" max="1" />
         <rule avp="Sequence-Number" required="true" max="1" />
@@ -572,10 +572,10 @@
     </data>
 </avp>
 
-<avp name="Sequence-Number" code="716" must="V" may="-" must-not="M" may-encrypt="N">
+<avp name="Sequence-Number" code="716" must="V" may="-" must-not="M" may-encrypt="N" vendor-id="10415">
     <data type="Unsigned32"    />
 </avp>
-<avp name="Expiry-Time" code="709" must="V" may="-" must-not="M" may-encrypt="N">
+<avp name="Expiry-Time" code="709" must="V" may="-" must-not="M" may-encrypt="N" vendor-id="10415">
     <data type="Time" />
 </avp>
 

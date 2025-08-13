@@ -292,7 +292,7 @@
                 <rule avp="UE-SRVCC-Capability" required="false" max="1" />
                 <rule avp="NOR-Flags" required="false" max="1" />
                 <rule avp="Homogeneous-Support-of-IMS-Voice-Over-PS-Sessions" required="false" max="1" />
-                <rule avp="Maximum-UE-Availability-Type" required="false" max="1" />
+                <rule avp="Maximum-UE-Availability-Time" required="false" max="1" />
                 <rule avp="Monitoring-Event-Config-Status" required="false" />
                 <rule avp="Emergency-Services" required="false" max="1" />
                 <rule avp="AVP" required="false"/>
@@ -1650,7 +1650,7 @@
 	    <data type="Unsigned32"/>
 	</avp>
 
-	<avp name="Maximum-UE-AvailabilityTime" code="3329" must="V" must-not="M" may-encrypt="N" vendor-id="10415">
+	<avp name="Maximum-UE-Availability-Time" code="3329" must="V" must-not="M" may-encrypt="N" vendor-id="10415">
 	    <data type="Time"/>
 	</avp>
 

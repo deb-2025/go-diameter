@@ -28,7 +28,7 @@ const (
 	UnknownSessionID              = 5002
 	AuthorizationRejected         = 5003
 	RoamingNotAllowed             = 5004
-	InvalidAVPValue               = 5018
+	InvalidAVPValue               = 5004
 	MissingAVP                    = 5005
 	IdentityAlreadyRegistered     = 5005
 	ResourcesExceeded             = 5006
