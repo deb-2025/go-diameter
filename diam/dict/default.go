@@ -7256,10 +7256,6 @@ var tgpps6aXML = `<?xml version="1.0" encoding="UTF-8"?>
 	    <data type="Unsigned32"/>
 	</avp>
 
-	<avp name="Maximum-UE-Availability-Time" code="3329" must="M" may="P" vendor-id="10415">
-	    <data type="Time"/>
-	</avp>
-
 	<avp name="Monitoring-Event-Config-Status" code="3142" must="M,V" may-encrypt="N" vendor-id="10415">
 	    <data type="Grouped">
 		<rule avp="Service-Report" required="false"/>
@@ -7361,7 +7357,7 @@ var tgpps6aXML = `<?xml version="1.0" encoding="UTF-8"?>
 	    </data>
 	</avp>
 
-	<avp name="IMS-Voice-Over-PS-Sessions-Supported" code="1902" must="V" must-not="M" may-encrypt="N" vendor-id="10415">
+	<avp name="IMS-Voice-Over-PS-Sessions-Supported" code="1492" must="V" must-not="M" may-encrypt="N" vendor-id="10415">
 	    <data type="Enumerated">
 		<item code="0" name="NOT_SUPPORTED"/>
 		<item code="1" name="SUPPORTED"/>
