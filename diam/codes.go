@@ -23,6 +23,7 @@ const (
 	OutOfSpace                    = 4002
 	ElectionLost                  = 4003
 	AuthenticationDataUnavailable = 4181
+	UnreachableUser               = 4221
 	AVPUnsupported                = 5001
 	UnknownUser                   = 5001
 	UnknownSessionID              = 5002
@@ -33,7 +34,7 @@ const (
 	IdentityAlreadyRegistered     = 5005
 	ResourcesExceeded             = 5006
 	ContradictingAVPs             = 5007
-	ErrorInAssignmentType	      = 5007
+	ErrorInAssignmentType         = 5007
 	AVPNotAllowed                 = 5008
 	AVPOccursTooManyTimes         = 5009
 	NoCommonApplication           = 5010
@@ -47,7 +48,7 @@ const (
 	UnknownEpsSubscription        = 5420
 	RatNotAllowed                 = 5421
 	UnknownEquipment              = 5422
-    UnknownServingNode            = 5423
+	UnknownServingNode            = 5423
 	AbsentUser                    = 5550
 	UserBusyForMtSms              = 5551
 	FacilityNotSupported          = 5552
@@ -69,4 +70,6 @@ const (
 	NoSubscriptionToData          = 5107
 	DsaiNotAvailable              = 5108
 	IdentitiesDontMatch           = 5002
+	InvalidEpsBearer              = 5651
+	UeTempNotReachable            = 5653
 )

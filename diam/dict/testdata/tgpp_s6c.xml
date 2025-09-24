@@ -209,7 +209,7 @@
     <data type="UTF8String" />
 </avp>
 
-<avp name="Originating-SIP-URI" code="3325" must="V" may="-" must-not="-" may-encrypt="N" vendor-id="10415">
+<avp name="Originating-SIP-URI" code="3326" must="V" may="-" must-not="-" may-encrypt="N" vendor-id="10415">
     <data type="UTF8String" />
 </avp>
 
@@ -334,7 +334,7 @@
     <data type="DiameterIdentity"/>
 </avp>
 
-<avp name="MME-Name" code="2410" must="V" may="-" must-not="M" may-encrypt="N" vendor-id="10415">
+<avp name="MME-Name" code="2402" must="V" may="-" must-not="M" may-encrypt="N" vendor-id="10415">
     <data type="DiameterIdentity"/>
 </avp>
 
