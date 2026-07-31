@@ -213,11 +213,6 @@ func (cli *Client) handshake(c diam.Conn) (diam.Conn, error) {
 	errc := make(chan error)
 	cli.Handler.mux.Handle("CEA", handleCEA(cli.Handler, errc))
 
-	var dwac chan struct{}
-	if cli.EnableWatchdog {
-		dwac = make(chan struct{})
-		cli.Handler.mux.Handle("DWA", handshakeOK(handleDWA(cli.Handler, dwac)))
-	}
 	for i := 0; i < (int(cli.MaxRetransmits) + 1); i++ {
 		_, err := m.WriteTo(c)
 		if err != nil {
@@ -232,6 +227,11 @@ func (cli *Client) handshake(c diam.Conn) (diam.Conn, error) {
 				return nil, err
 			}
 			if cli.EnableWatchdog {
+				var dwac chan struct{}
+				dwac = make(chan struct{}, 1)
+				cli.Handler.dwaLock.Lock()
+				cli.Handler.dwaChanMap[c] = dwac
+				cli.Handler.dwaLock.Unlock()
 				go cli.watchdog(c, dwac)
 			}
 			return c, nil
@@ -288,6 +288,11 @@ func (cli *Client) watchdog(c diam.Conn, dwac chan struct{}) {
 	for {
 		select {
 		case <-disconnect:
+			if cli.EnableWatchdog {
+				cli.Handler.dwaLock.Lock()
+				delete(cli.Handler.dwaChanMap, c)
+				cli.Handler.dwaLock.Unlock()
+			}
 			return
 		case <-time.After(cli.WatchdogInterval):
 			cli.dwr(c, osid, dwac)

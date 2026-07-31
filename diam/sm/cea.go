@@ -15,7 +15,6 @@ func handleCEA(sm *StateMachine, errc chan error) diam.HandlerFunc {
 	return func(c diam.Conn, m *diam.Message) {
 		cea := new(smparser.CEA)
 		if err := cea.Parse(m, smparser.Client); err != nil {
-			errc <- err
 			return
 		}
 		meta := smpeer.FromCEA(cea)
