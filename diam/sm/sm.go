@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"net"
 	"os"
+	"sync"
 
 	"github.com/deb-2025/go-diameter/diam"
 	"github.com/deb-2025/go-diameter/diam/datatype"
@@ -88,6 +89,8 @@ type StateMachine struct {
 	mux           *diam.ServeMux
 	hsNotifyc     chan diam.Conn // handshake notifier
 	supportedApps []*SupportedApp
+	dwaChanMap map[diam.Conn]chan struct{}
+	dwaLock sync.RWMutex
 }
 
 // New creates and initializes a new StateMachine for clients or servers.
@@ -108,9 +111,11 @@ func New(settings *Settings) *StateMachine {
 		mux:           diam.NewServeMux(),
 		hsNotifyc:     make(chan diam.Conn),
 		supportedApps: PrepareSupportedApps(dict.Default),
+		dwaChanMap: make(map[diam.Conn]chan struct{}),
 	}
 	sm.mux.Handle("CER", handleCER(sm))
 	sm.mux.Handle("DWR", handshakeOK(handleDWR(sm)))
+	sm.mux.Handle("DWA", handshakeOK(handleDWA(sm)))
 	sm.mux.HandleIdx(baseCERIdx, handleCER(sm))
 	sm.mux.HandleIdx(baseDWRIdx, handleDWR(sm))
 	return sm
