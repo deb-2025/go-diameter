@@ -5,6 +5,7 @@
 package sm
 
 import (
+	"crypto/tls"
 	"errors"
 	"fmt"
 	"net"
@@ -63,6 +64,13 @@ type Client struct {
 // start a watchdog goroutine in background.
 func (cli *Client) Dial(addr string) (diam.Conn, error) {
 	return cli.DialExt("tcp", addr, 0, nil)
+}
+
+// DialNetworkTLSWithConfig dials with a pre-built *tls.Config.
+func (cli *Client) DialNetworkTLSWithConfig(network, addr string, config *tls.Config) (diam.Conn, error) {
+	return cli.dial(func() (diam.Conn, error) {
+		return diam.DialNetworkTLSWithConfig(network, addr, config, cli.Handler, cli.Dict)
+	})
 }
 
 // DialNetwork calls the network address set as ip:port, performs a handshake and optionally
