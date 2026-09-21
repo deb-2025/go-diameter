@@ -35,7 +35,7 @@
     <rule avp="OC-OLR" required="false" max="1" pointer="true"/>
     <rule avp="Load" required="false"/>
     <rule avp="Supported-Features" required="false"/>
-    <rule avp="User-Identifier" required="false"/>
+    <rule avp="User-Identifier" required="false" pointer="true"/>
     <rule avp="Service-Data" required="false" max="1" pointer="true"/>
     <rule avp="Failed-AVP" required="false" max="1" pointer="true"/>
     <rule avp="Proxy-Info" required="false"/>
@@ -45,7 +45,7 @@
   </command>
 
   <avp name="DRMP" code="301" must-not="V">
-    <data type="Enumerated" httpStruct="DRMP" convType="ENUM">
+    <data type="Enumerated">
       <item code="0" name="PRIORITY_0"/>
       <item code="1" name="PRIORITY_1"/>
       <item code="2" name="PRIORITY_2"/>
@@ -65,10 +65,10 @@
     </data>
   </avp>
   <avp name="Session-Id" code="263" must="M" may="P" must-not="V" may-encrypt="Y">
-    <data type="UTF8String" httpType="string" convType="DIRECT"/>
+    <data type="UTF8String" />
   </avp>
   <avp name="Auth-Session-State" code="277" must="M" may="P" must-not="V" may-encrypt="-">
-    <data type="Enumerated" httpStruct="AuthSessionState" convType="ENUM">
+    <data type="Enumerated">
       <item code="0" name="STATE_MAINTAINED"/>
       <item code="1" name="NO_STATE_MAINTAINED"/>
     </data>
@@ -86,7 +86,7 @@
     <data type="DiameterIdentity"/>
   </avp>
   <avp name="User-Identifier" code="3102" must="M,V" may="-" must-not="-" may-encrypt="N" vendor-id="10415">
-    <data type="Grouped" httpStruct="UserIdentifier" convType="STRUCT">
+    <data type="Grouped">
         <rule avp="User-Name" required="false" max="1" pointer="true" />
         <rule avp="MSISDN" required="false" max="1" pointer="true" />
         <rule avp="External-Identifier" required="false" max="1" pointer="true" />
@@ -106,46 +106,46 @@
   <avp name="LMSI" code="2400" must="M,V" may="-" must-not="-" may-encrypt="N" vendor-id="10415">
     <data type="OctetString" />
   </avp>
-  <avp name="Service-ID" code="3103" must="M,V" may="-" must-not="-" may-encrypt="N">
-    <data type="Enumerated" httpStruct="ServiceID" convType="ENUM">
+  <avp name="Service-ID" code="3103" must="M,V" may="-" must-not="-" may-encrypt="N" vendor-id="10415">
+    <data type="Enumerated">
       <item code="0" name="DEVICE_TRIGGER"/>
       <item code="1" name="SMS_MO"/>
     </data>
   </avp>
   <avp name="SCS-Identity" code="3104" must="M,V" may="-" must-not="-" may-encrypt="N" vendor-id="10415">
-    <data type="OctetString" httpType="string" convType="DIRECT"/>
+    <data type="OctetString" />
   </avp>
   <avp name="Service-Parameters" code="3105" must="M,V" may="-" must-not="-" may-encrypt="N" vendor-id="10415">
-    <data type="Grouped" httpStruct="ServiceParameters" convType="STRUCT">
+    <data type="Grouped">
         <rule avp="T4-Parameters" required="false" max="1" pointer="true" />
         <rule avp="Application-Port-Identifier" required="false" max="1" pointer="true" />
         <rule avp="AVP" required="false" />
     </data>
   </avp>
   <avp name="T4-Parameters" code="3106" must="M,V" may="-" must-not="-" may-encrypt="N" vendor-id="10415">
-    <data type="Grouped" httpStruct="T4Parameters" convType="STRUCT">
+    <data type="Grouped">
         <rule avp="Priority-Indication" required="false" max="1" pointer="true" />
         <rule avp="SM-RP-SMEA" required="false" max="1" pointer="true" />
         <rule avp="AVP" required="false" />
     </data>
   </avp>
-  <avp name="Priority-Indication" code="3006" must="M,V" may="P" must-not="-" may-encrypt="-">
-    <data type="Enumerated" httpStruct="PriorityIndication" convType="ENUM">
+  <avp name="Priority-Indication" code="3006" must="M,V" may="P" must-not="-" may-encrypt="-" vendor-id="10415">
+    <data type="Enumerated">
       <item code="0" name="Non-Priority"/>
       <item code="1" name="Priority"/>
     </data>
   </avp>
   <avp name="SM-RP-SMEA" code="3309" must="M,V" may="-" must-not="-" may-encrypt="N" vendor-id="10415">
-    <data type="OctetString" httpType="string" convType="DIRECT"/>
+    <data type="OctetString" />
   </avp>
-  <avp name="Application-Port-Identifier" code="3010" must="M,V" may="P" must-not="-" may-encrypt="-">
-    <data type="Unsigned32" httpType="uint32" convType="DIRECT"/>
+  <avp name="Application-Port-Identifier" code="3010" must="M,V" may="P" must-not="-" may-encrypt="-" vendor-id="10415">
+    <data type="Unsigned32" />
   </avp>
-  <avp name="SIR-Flags" code="3110" must="M,V" may="-" must-not="-" may-encrypt="N">
-    <data type="Unsigned32" httpType="uint32" convType="DIRECT"/>
+  <avp name="SIR-Flags" code="3110" must="M,V" may="-" must-not="-" may-encrypt="N" vendor-id="10415">
+    <data type="Unsigned32" />
   </avp>
   <avp name="OC-Supported-Features" code="621" must-not="V">
-    <data type="Grouped" httpStruct="OcSupportedFeatures" convType="STRUCT">
+    <data type="Grouped">
       <rule avp="OC-Feature-Vector" required="false" max="1"/>
       <rule avp="AVP" required="false"/>
     </data>
@@ -154,23 +154,23 @@
     <data type="Unsigned64"/>
   </avp>
   <avp name="Supported-Features" code="628" must="V" may-encrypt="N" vendor-id="10415">
-    <data type="Grouped" httpStruct="SupportedFeatures" convType="STRUCT">
+    <data type="Grouped">
       <rule avp="Vendor-Id" required="true" max="1"/>
       <rule avp="Feature-List-ID" required="true" max="1"/>
       <rule avp="Feature-List" required="true" max="1"/>
     </data>
   </avp>
-  <avp name="Vendor-Id" code="266" must="M" may-encrypt="-" vendor-id="10415">
-    <data type="Unsigned32" httpType="uint32" convType="DIRECT"/>
+  <avp name="Vendor-Id" code="266" must="M" may-encrypt="-">
+    <data type="Unsigned32" />
   </avp>
   <avp name="Feature-List-ID" code="629" must="V" may-encrypt="N" vendor-id="10415">
-    <data type="Unsigned32" httpType="uint32" convType="DIRECT"/>
+    <data type="Unsigned32" />
   </avp>
   <avp name="Feature-List" code="630" must="V" may-encrypt="N" vendor-id="10415">
-    <data type="Unsigned32" httpType="uint32" convType="DIRECT"/>
+    <data type="Unsigned32" />
   </avp>
   <avp name="Proxy-Info" code="284" must="M" may="-" must-not="P,V" may-encrypt="N">
-    <data type="Grouped" httpStruct="ProxyInfo" convType="STRUCT">
+    <data type="Grouped">
       <rule avp="Proxy-Host" required="true" max="1"/>
       <rule avp="Proxy-State" required="true" max="1"/>
     </data>
@@ -179,25 +179,25 @@
     <data type="DiameterIdentity"/>
   </avp>
   <avp name="Proxy-State" code="33" must="M" may="-" must-not="P,V" may-encrypt="N">
-    <data type="OctetString" httpType="string" convType="DIRECT"/>
+    <data type="OctetString" />
   </avp>
   <avp name="Route-Record" code="282" must="M" may="-" must-not="P,V" may-encrypt="N">
     <data type="DiameterIdentity"/>
   </avp>
   <avp name="Result-Code" code="268" must="M" may="P" must-not="V" may-encrypt="-">
-    <data type="Unsigned32" httpType="uint32" convType="DIRECT"/>
+    <data type="Unsigned32" />
   </avp>
   <avp name="Experimental-Result" code="297" must="M" may="P" must-not="V" may-encrypt="N">
-    <data type="Grouped" httpStruct="ExperimentalResult" convType="STRUCT">
+    <data type="Grouped">
       <rule avp="Vendor-Id" required="true" max="1"/>
       <rule avp="Experimental-Result-Code" required="true" max="1"/>
     </data>
   </avp>
   <avp name="Experimental-Result-Code" code="298" must="M" may="P" must-not="V" may-encrypt="N">
-    <data type="Unsigned32" httpType="uint32" convType="DIRECT"/>
+    <data type="Unsigned32" />
   </avp>
   <avp name="OC-OLR" code="623" must-not="V">
-    <data type="Grouped" httpStruct="OcOlr" convType="STRUCT">
+    <data type="Grouped">
       <rule avp="OC-Sequence-Number" required="true" max="1"/>
       <rule avp="OC-Report-Type" required="true" max="1"/>
       <rule avp="OC-Reduction-Percentage" required="false" max="1"/>
@@ -209,19 +209,19 @@
     <data type="Unsigned64"/>
   </avp>
   <avp name="OC-Validity-Duration" code="625" must-not="V">
-    <data type="Unsigned32" httpType="uint32" convType="DIRECT"/>
+    <data type="Unsigned32" />
   </avp>
   <avp name="OC-Report-Type" code="626" must-not="V">
-    <data type="Enumerated" httpStruct="OcReportType" convType="ENUM">
+    <data type="Enumerated">
       <item code="0" name="HOST_REPORT"/>
       <item code="1" name="REALM_REPORT"/>
     </data>
   </avp>
   <avp name="OC-Reduction-Percentage" code="627" must-not="V">
-    <data type="Unsigned32" httpType="uint32" convType="DIRECT"/>
+    <data type="Unsigned32" />
   </avp>
   <avp name="Load" code="650" must-not="V">
-    <data type="Grouped" httpStruct="Load" convType="STRUCT">
+    <data type="Grouped">
       <rule avp="Load-Type" required="false" max="1"/>
       <rule avp="Load-Value" required="false" max="1"/>
       <rule avp="SourceID" required="false" max="1"/>
@@ -232,7 +232,7 @@
     <data type="Unsigned64"/>
   </avp>
   <avp name="Load-Type" code="651" must-not="V">
-    <data type="Enumerated" httpStruct="LoadType" convType="ENUM">
+    <data type="Enumerated">
       <item code="0" name="HOST"/>
       <item code="1" name="PEER"/>
     </data>
@@ -240,25 +240,25 @@
   <avp name="SourceID" code="649" must-not="V">
     <data type="DiameterIdentity"/>
   </avp>
-  <avp name="Service-Data" code="3107" must="M,V" may="-" must-not="-" may-encrypt="N">
-    <data type="Grouped" httpStruct="ServiceData" convType="STRUCT">
+  <avp name="Service-Data" code="3107" must="M,V" may="-" must-not="-" may-encrypt="N" vendor-id="10415">
+    <data type="Grouped">
       <rule avp="T4-Data" required="false" max="1" pointer="true"/>
       <rule avp="AVP" required="false"/>
     </data>
   </avp>
-  <avp name="T4-Data" code="3108" must="M,V" may="-" must-not="-" may-encrypt="N">
-    <data type="Grouped" httpStruct="T4Data" convType="STRUCT">
+  <avp name="T4-Data" code="3108" must="M,V" may="-" must-not="-" may-encrypt="N" vendor-id="10415">
+    <data type="Grouped">
       <rule avp="HSS-Cause" required="false" max="1" pointer="true"/>
       <rule avp="Serving-Node" required="false" max="1" pointer="true"/>
       <rule avp="Additional-Serving-Node" required="false" />
       <rule avp="AVP" required="false"/>
     </data>
   </avp>
-  <avp name="HSS-Cause" code="3109" must="M,V" may="-" must-not="-" may-encrypt="N">
-    <data type="Unsigned32" httpType="uint32" convType="DIRECT"/>
+  <avp name="HSS-Cause" code="3109" must="M,V" may="-" must-not="-" may-encrypt="N" vendor-id="10415">
+    <data type="Unsigned32" />
   </avp>
   <avp name="Serving-Node" code="2401" must="M,V" may="-" must-not="-" may-encrypt="N" vendor-id="10415">
-    <data type="Grouped" httpStruct="ServingNode" convType="STRUCT">
+    <data type="Grouped">
       <rule avp="SGSN-Number" required="false" max="1" pointer="true"/>
       <rule avp="SGSN-Name" required="false" max="1" pointer="true"/>
       <rule avp="SGSN-Realm" required="false" max="1" pointer="true"/>
@@ -273,7 +273,7 @@
     </data>
   </avp>
   <avp name="Additional-Serving-Node" code="2406" must="M,V" may="-" must-not="-" may-encrypt="N" vendor-id="10415">
-    <data type="Grouped" httpStruct="AdditionalServingNode" convType="STRUCT">
+    <data type="Grouped">
       <rule avp="SGSN-Number" required="false" max="1" pointer="true"/>
       <rule avp="SGSN-Name" required="false" max="1" pointer="true"/>
       <rule avp="SGSN-Realm" required="false" max="1" pointer="true"/>
