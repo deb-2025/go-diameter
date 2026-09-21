@@ -105,6 +105,12 @@ func DialNetworkTLS(network, addr, certFile, keyFile string, handler Handler, dp
 	return DialTLSExt(network, addr, certFile, keyFile, handler, dp, 0, nil)
 }
 
+// DialNetworkTLSWithConfig is the same as DialNetworkTLS but accepts a pre-built *tls.Config.
+func DialNetworkTLSWithConfig(network, addr string, config *tls.Config, handler Handler, dp *dict.Parser) (Conn, error) {
+	srv := &Server{Network: network, Addr: addr, Handler: handler, Dict: dp, TLSConfig: config, LocalAddr: nil}
+	return dialTLS(srv, "", "", 0)
+}
+
 // DialTLSExt is the same as DialExt, but for TLS.
 func DialTLSExt(
 	network,

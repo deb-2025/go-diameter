@@ -72,4 +72,6 @@ const (
 	IdentitiesDontMatch           = 5002
 	InvalidEpsBearer              = 5651
 	UeTempNotReachable            = 5653
+	MissingApplicationData        = 5598
+	UnauthorizedService           = 5511
 )

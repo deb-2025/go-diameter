@@ -19,7 +19,8 @@ var testDicts = []string{
 	"./testdata/tgpp_s13.xml",
 	"./testdata/tgpp_s6c.xml",
 	"./testdata/tgpp_cx.xml",
-	"./testdata/tgpp_sh.xml"}
+	"./testdata/tgpp_sh.xml",
+	"./testdata/tgpp_s6m.xml"}
 
 func TestNewParser(t *testing.T) {
 	for _, dict := range testDicts {

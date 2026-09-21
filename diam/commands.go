@@ -38,6 +38,7 @@ const (
 	SessionTermination        = 275
 	SpendingLimit             = 8388635
 	SubscribeNotifications    = 308
+	SubscriberInformation     = 8388641
 	UpdateLocation            = 316
 	UserAuthorization         = 300
 	UserData                  = 306
@@ -93,6 +94,8 @@ const (
 	RTR = "RTR"
 	SAA = "SAA"
 	SAR = "SAR"
+	SIA = "SIA"
+	SIR = "SIR"
 	SLA = "SLA"
 	SLR = "SLR"
 	SNA = "SNA"
