@@ -133,24 +133,6 @@ func (s *Server) Close() {
 // of ASN.1 time).
 // generated from src/crypto/tls:
 // go run generate_cert.go  --rsa-bits 512 --host 127.0.0.1,::1,example.com --ca --start-date "Jan 1 00:00:00 1970" --duration=1000000h
-var localhostCert = []byte(`-----BEGIN CERTIFICATE-----
-MIIBjTCCATegAwIBAgIPKRqtFb1X/uogs0UPGkUyMA0GCSqGSIb3DQEBCwUAMBIx
-EDAOBgNVBAoTB0FjbWUgQ28wIBcNNzAwMTAxMDAwMDAwWhgPMjA4NDAxMjkxNjAw
-MDBaMBIxEDAOBgNVBAoTB0FjbWUgQ28wXDANBgkqhkiG9w0BAQEFAANLADBIAkEA
-tMn18UcCiDO20RhkwA/88FmSDaIAVNjLtel657wVDoWgci2MRMcPeSccgsYS4xDn
-ezTHlHFOGUG/zbo/xCUn/wIDAQABo2gwZjAOBgNVHQ8BAf8EBAMCAqQwEwYDVR0l
-BAwwCgYIKwYBBQUHAwEwDwYDVR0TAQH/BAUwAwEB/zAuBgNVHREEJzAlggtleGFt
-cGxlLmNvbYcEfwAAAYcQAAAAAAAAAAAAAAAAAAAAATANBgkqhkiG9w0BAQsFAANB
-AKeVsv55EyCtiTX2v1BGkDT2Yz/XvUAO8+dIRro2Sbl/sPs3AbwsfPtmzEs2971o
-enpSR+RxdEI1vz+fW2SgTQ4=
------END CERTIFICATE-----`)
+var localhostCert = []byte(``)
 
-var localhostKey = []byte(`-----BEGIN RSA PRIVATE KEY-----
-MIIBOgIBAAJBALTJ9fFHAogzttEYZMAP/PBZkg2iAFTYy7Xpeue8FQ6FoHItjETH
-D3knHILGEuMQ53s0x5RxThlBv826P8QlJ/8CAwEAAQJAdGjCw1xc5gSeh960KPNi
-hAS4xax1mCyMZxLyv7pcuJ7+51Pfg9XvChp8iH1rOolWRAlLUjyNqcoHdAQjcJ8P
-aQIhAMtjcaQjz1pzt8DuRVJSWZ1WfDWr9T2I8RDhRV2tVODrAiEA4430sKoiZ2NY
-4jIcWnqFdF67QVeFO1YlOj8aWBJesD0CIQCxLVD6/yMMFdBWZnrHCuv8LzIHA2Sh
-FWGDJerqfyt4vwIgOUUK5kOLcRXR0uvlsufPGqCU5DcQswRVTjl/edb1uckCIEhp
-k/edVSu51t+U3IK2Jav3CDauyjgZ2+5osUckI8Ax
------END RSA PRIVATE KEY-----`)
+var localhostKey = []byte(``)
